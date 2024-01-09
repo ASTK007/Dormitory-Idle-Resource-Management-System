@@ -43,7 +43,7 @@ beforeDestroy() {
       this.adminInfo = adminInfo;
     },
     retrieveAdminInfo() {
-      // 获取管理员信息的逻辑
+      // 获取管理员信息
       const adminInfoString = sessionStorage.getItem("adminInfo");
         this.adminInfo = JSON.parse(adminInfoString);
     },

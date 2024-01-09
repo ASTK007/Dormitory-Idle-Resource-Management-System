@@ -58,7 +58,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 50px; /* Increase the top padding to move the footer up */
+  padding-top: 50px;
 
   li {
     cursor: pointer;
@@ -85,11 +85,11 @@ export default {
   .project-introduction {
     .summary{
       text-align: center;
-  max-width: 1000px; /* Increase the max-width as needed */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
-  font-weight: 30; /* Set a thinner font weight (e.g., 300 for light) */
-  font-size: 20px; /* Set a smaller font size */
+  font-weight: 30;
+  font-size: 20px;
     }
 }
 }

@@ -123,7 +123,7 @@ export default {
       }, 300);
     },
 
-    //删除
+    //删除评论
     async del(item) {
       await api
         .deleteComment(item.id)

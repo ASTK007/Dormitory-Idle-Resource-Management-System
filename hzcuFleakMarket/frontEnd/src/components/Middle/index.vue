@@ -6,7 +6,7 @@
       <el-card class="middle-box-card" shadow="never" v-if="showSearch">
         <slot name="search"></slot>
       </el-card>
-      <slot />
+      <slot></slot>
     </div>
   </div>
 </template>

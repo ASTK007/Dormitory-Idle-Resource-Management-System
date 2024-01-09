@@ -94,7 +94,6 @@ export default {
     });
 
     if (response === true) {
-      // 处理管理员登录成功的逻辑
       this.$message.success("管理员登录成功!");
       sessionStorage.setItem("islogin", true);
       sessionStorage.setItem("superadmin", true);
@@ -104,7 +103,6 @@ export default {
       })
       this.$router.push({ path: "/admin" });
     } else {
-      // 处理管理员登录失败的逻辑
       this.$message.error("ID或密码错误!");
     }
   } catch (error) {

@@ -1,7 +1,7 @@
 <template>
   <div class="car bg">
 
-    <Head :showSearch="false" />
+    <Head :showSearch="false"></Head>
 
     <Middle :showBread="false" :showSearch="false">
       <div slot class="content m20" v-show="tableData.length">
@@ -45,7 +45,7 @@
       </div>
     </Middle>
 
-    <Footer />
+    <Footer></Footer>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="goods p-r bg">
 
-    <Head @search="getData" :showSearch="true" />
+    <Head @search="getData" :showSearch="true"></Head>
     <div class="search-row">
       <div class="logo mt20 mb20 f-r f-a-c f-j-s">
         <div class="font-default font30"> </div>
@@ -45,7 +45,7 @@
       </div>
     </div>
 
-    <Footer />
+    <Footer></Footer>
   </div>
 </template>
 

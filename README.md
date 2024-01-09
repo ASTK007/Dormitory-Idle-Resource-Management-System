@@ -17,6 +17,8 @@ ckEnd中的入口类文件HzcuFleakmarketApplication.java（默认springboot项�
 4、后端已经启动，可在浏览器中输入http://localhost:8081/doc.html进入knife4j后端调
 试工具界面，成功进入则启动成功
 5、进入到frontEnd目录中，依次在命令行输入：
+# 安装依赖并启动
 npm install
 npm run dev
+
 前端启动成功之后会自动在浏览器打开网页

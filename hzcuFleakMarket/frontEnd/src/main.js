@@ -26,7 +26,6 @@ Vue.use(ElementUI)
 
 //重置data数据
 Vue.prototype.resetData = (obj, that) => {
-  // console.log('重置数据')
   that.$data[obj] = that.$options.data()[obj]
 }
 

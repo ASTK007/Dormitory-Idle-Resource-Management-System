@@ -3434,6 +3434,11 @@ data-urls@^1.0.0, data-urls@^1.1.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
+dayjs@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.0.1.tgz"
+  integrity sha512-5vs/8M14Dypc6sf2Pq6s+Z8fEpJrgMYJMJ+r6XymGDx3xOFyqMSVBGvLMlCbDuYYaMuW2nStaXF4kbFZh0FzWw==
+
 de-indent@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npm.taobao.org/de-indent/download/de-indent-1.0.2.tgz"

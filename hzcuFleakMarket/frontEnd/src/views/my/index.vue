@@ -1,7 +1,7 @@
 <template>
   <div class="home">
 
-    <Head />
+    <Head></Head>
 
     <div class="f-r h100 mt20 my-menu center">
       <div class="my-left h100 mr20 pt40 pl40">
@@ -15,7 +15,7 @@
       </Middle>
     </div>
 
-    <Footer />
+    <Footer></Footer>
   </div>
 </template>
 
@@ -37,15 +37,15 @@ export default {
       tabActive: "Myhome",
       tabbars: [
       {
-          component: "Myhome", // 添加评论组件到 tabbars
+          component: "Myhome", // 添加个人中心组件到 tabbars
           name: "个人中心",
         },
         {
-          component: "Userorders",
+          component: "Userorders", // 添加订单组件到 tabbars
           name: "我的订单",
         },
         {
-          component: "MyGoods", // 添加评论组件到 tabbars
+          component: "MyGoods", // 添加物品组件到 tabbars
           name: "我的物品",
         },
       ],
