@@ -3,7 +3,7 @@
 
 后端技术栈：springboot+mybatisplus+knife4j(swagger增强)+MySQL
 
-前端技术栈：vueVue+ElementUI+axios+vue-router+Vuex+vue-cli
+前端技术栈：Vue+ElementUI+axios+vue-router+Vuex+vue-cli
 
 前端后台界面使用vue-admin-template框架
 
@@ -12,7 +12,7 @@
 本项目为软件工程课程大作业，第一次做项目代码不规范，仅供参考
 
 
-#使用部署说明
+# 使用部署说明
 
 1、clone项目到本地 git clone https://github.com/ASTK007/School-fleak-market.git
 
@@ -28,9 +28,9 @@ http://localhost:8081/doc.html
 
 5、进入到frontEnd目录中，依次在命令行输入：
 
-# 安装依赖并启动
+#安装依赖
 npm install
-
+#启动项目
 npm run dev
 
 前端启动成功之后会自动在浏览器打开网页
