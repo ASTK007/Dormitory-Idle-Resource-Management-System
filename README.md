@@ -20,7 +20,11 @@
 
 3、使用IDEA、Vscode等具备springboot项目（默认springboot项目版本3.2.0，需要JDK17及以上，可自行尝试降低版本运行）运行环境的软件启动hzcuFleakMarket\backEnd中的入口类文件HzcuFleakmarketApplication.java
 
-4、后端启动后，可在浏览器中输入http://localhost:8081/doc.html进入knife4j后端调试工具界面，成功进入则启动成功
+4、后端启动后，可在浏览器中输入
+
+http://localhost:8081/doc.html
+
+进入knife4j后端调试工具界面，成功进入则启动成功
 
 5、进入到frontEnd目录中，依次在命令行输入：
 
