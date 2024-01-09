@@ -19,6 +19,7 @@ ckEnd中的入口类文件HzcuFleakmarketApplication.java（默认springboot项�
 5、进入到frontEnd目录中，依次在命令行输入：
 # 安装依赖并启动
 npm install
+
 npm run dev
 
 前端启动成功之后会自动在浏览器打开网页
