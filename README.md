@@ -1,4 +1,4 @@
-# School-fleak marketshu
+# School-fleak market
 一个由springboot+vue架构实现的校园二手市场系统
 
 后端技术栈：springboot+mybatisplus+knife4j(swagger增强)+MySQL
