@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzcu_fleakmarket.dao.GoodsDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.hzcu_fleakmarket.entity.Goods">
+        <id column="id" property="id" />
+        <result column="goods_name" property="goodsName" />
+        <result column="goods_type" property="goodsType" />
+        <result column="goods_des" property="goodsDes" />
+        <result column="goods_img" property="goodsImg" />
+        <result column="goods_status" property="goodsStatus" />
+        <result column="goods_value" property="goodsValue" />
+        <result column="goods_num" property="goodsNum" />
+        <result column="uid" property="uid" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, goods_name, goods_type, goods_des, goods_img, goods_status, goods_value, goods_num, uid
+    </sql>
+
+    <!-- 搜索用户拥有的所有物品 -->
+    <select id="loadAllUserGoods" resultMap="BaseResultMap">
+    SELECT distinct goods.* 
+    FROM user,goods
+    where uid=#{id}
+    </select> 
+
+    <!-- 搜索订单对应的物品 -->
+    <select id="selectByOrderId" resultMap="BaseResultMap">
+    select goods.*
+    from goods left join orders
+    on goods.id=gid
+    where orders.id=#{id}
+    </select> 
+
+    <!-- 根据名称模糊搜索物品 -->
+    <select id="selectByGoodsName" resultMap="BaseResultMap">
+    SELECT * 
+    FROM goods
+    where goods_name like "%"#{name}"%" and goods_status = "上架中"
+    </select> 
+
+    <!-- 加载所有上架中的商品-->
+    <select id="selectAllGoodsOnSale" resultMap="BaseResultMap">
+    SELECT * 
+    FROM goods
+    where goods_status = "上架中"
+    </select> 
+
+</mapper>

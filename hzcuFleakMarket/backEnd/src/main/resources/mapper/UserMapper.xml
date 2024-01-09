@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzcu_fleakmarket.dao.UserDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.hzcu_fleakmarket.entity.User">
+        <id column="id" property="id" />
+        <result column="user_name" property="userName" />
+        <result column="user_type" property="userType" />
+        <result column="user_passwd" property="userPasswd" />
+        <result column="user_phonenum" property="userPhonenum" />
+        <result column="user_email" property="userEmail" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_name, user_type, user_passwd, user_phonenum, user_email
+    </sql>
+    
+    <!-- 通过订单编号查询用户 -->
+    <select id="selectByOrderId" resultMap="BaseResultMap">
+    SELECT user.* 
+    FROM orders LEFT JOIN user 
+	on user.id=uid
+    where orders.id=#{id}
+    </select> 
+
+    <!-- 通过物品编号查询用户 -->
+    <select id="selectByGoodsId" resultMap="BaseResultMap">
+    SELECT user.* 
+    FROM goods LEFT JOIN user 
+	on user.id=uid
+    where goods.id=#{id}
+    </select> 
+
+    <!-- 通过评论编号查询用户 -->
+    <select id="selectByCommId" resultMap="BaseResultMap">
+    SELECT user.* 
+    FROM comment LEFT JOIN user 
+	on user.id=uid
+    where comment.id=#{id}
+    </select> 
+    
+        <!-- 用户登录 -->
+    <select id="userLogin" resultType="java.lang.String">
+    select user_passwd
+    from user
+    where id = #{id} and user_type = "user"
+    </select> 
+
+        <!-- 管理员登录 -->
+    <select id="adminLogin" resultType="java.lang.String">
+    select user_passwd
+    from user
+    where id = #{id} and user_type = "admin"
+    </select> 
+
+        <!-- 查找新注册用户ID -->
+    <select id="getNewUserId" resultType="int">
+    SELECT MAX(id) from `user`
+    </select> 
+
+</mapper>

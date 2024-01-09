@@ -1,0 +1,60 @@
+server:
+  port: 8081
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/schoolmarket?verifyServerCertificate=false&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  web:
+    resources:
+      static-locations: classpath:/upload/
+  #整合vue、模板引擎
+  thymeleaf:
+    option: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+  #整合vue、模板引擎
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  typeAliasesPackage: com.hzcu_fleakmarket.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+logging:
+  level:
+    com.zhi.shop.dao: debug
+
+# springdoc-openapi 配置
+springdoc:
+  swagger-ui:
+    #springdoc的访问路径
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      #需要扫描的包,这里需要改成你自己的.
+      packages-to-scan: com.hzcu_fleakmarket
+  default-flat-param-object: true
+  
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
