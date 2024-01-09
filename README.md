@@ -29,9 +29,11 @@ http://localhost:8081/doc.html
 5、进入到frontEnd目录中，依次在命令行输入：
 
 #安装依赖
+
 npm install
 
 #启动项目
+
 npm run dev
 
 前端启动成功之后会自动在浏览器打开网页
