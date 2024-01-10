@@ -22,19 +22,19 @@
           <div class="t-c font17 font-default">注册</div>
           <el-form ref="addForm" :model="addForm" class="addForm pl50 pr50 pb10 pt40" label-position="right" size="small">
             <el-form-item label="">
-              <el-input v-model="addForm.userName" placeholder="请输入用户名"></el-input>
+              <el-input v-model="addForm.userName" maxlength="64" placeholder="请输入用户名"></el-input>
             </el-form-item>
-            <el-form-item label="">
-              <el-input v-model="addForm.userPasswd" type="password" placeholder="请输入密码"></el-input>
+            <el-form-item label="" prop="userPasswd" required :rules="passwordRules">
+              <el-input v-model="addForm.userPasswd" type="password" maxlength="32" placeholder="请输入密码"></el-input>
             </el-form-item>
-            <el-form-item label="">
-              <el-input v-model="repwd" type="password" placeholder="重新输入密码"></el-input>
+            <el-form-item label="" prop="userPasswd" required :rules="passwordRules">
+              <el-input v-model="repwd" type="password" maxlength="32" placeholder="重新输入密码"></el-input>
             </el-form-item>
-            <el-form-item label="">
-              <el-input v-model="addForm.userPhonenum" placeholder="请输入手机号"></el-input>
+            <el-form-item label="" prop="userPhonenum" required :rules="phoneRules">
+              <el-input v-model="addForm.userPhonenum" type="tel" maxlength="11" placeholder="请输入手机号"></el-input>
             </el-form-item>
-            <el-form-item label="">
-              <el-input v-model="addForm.userEmail" placeholder="请输入邮箱"></el-input>
+            <el-form-item label="" prop="userEmail" required :rules="emailRules">
+              <el-input v-model="addForm.userEmail" type="email" maxlength="32" placeholder="请输入邮箱"></el-input>
             </el-form-item>
           </el-form>
           <div class="font-default font14 pl50 pr50 t-r mb10 zs" @click="types='登录'">已有账号?登录</div>
@@ -45,12 +45,12 @@
 
         <div v-if="types=='登录'">
           <div class="t-c font17 font-default">登录</div>
-          <el-form ref="addForm" :model="addForm" class="addForm pl50 pr50 pt40" label-position="right" size="small">
+          <el-form ref="loginForm" :model="addForm" class="addForm pl50 pr50 pt40" label-position="right" size="small">
             <el-form-item label="">
-              <el-input v-model="addForm.id" placeholder="请输入ID"></el-input>
+              <el-input v-model="addForm.id" type="number" placeholder="请输入ID"></el-input>
             </el-form-item>
             <el-form-item label="">
-              <el-input v-model="addForm.userPasswd" type="password" placeholder="请输入密码"></el-input>
+              <el-input v-model="addForm.userPasswd" type="password" maxlength="32" placeholder="请输入密码"></el-input>
             </el-form-item>
           </el-form>
           <div class="font-default font14 pl50 pr50 t-r mb10 zs f-r f-a-c f-j-s mb40">
@@ -62,21 +62,21 @@
         </div>
         <div v-if="types=='修改信息'">
     <div class="t-c font17 font-default">修改个人信息</div>
-    <el-form ref="addForm" :model="userInfoForm" class="addForm pl50 pr50 pb10 pt40" label-position="right" size="small">
+    <el-form ref="updateForm" :model="userInfoForm" class="addForm pl50 pr50 pb10 pt40" label-position="right" size="small">
       <el-form-item label="">
         <el-input v-model="userInfoForm.userName" placeholder="请输入用户名"></el-input>
       </el-form-item>
-      <el-form-item label="">
-        <el-input v-model="userInfoForm.userPasswd" type="password" placeholder="请输入密码"></el-input>
+      <el-form-item label="" prop="userPasswd" required :rules="passwordRules">
+        <el-input v-model="userInfoForm.userPasswd" type="password" maxlength="32" placeholder="请输入密码"></el-input>
       </el-form-item>
-      <el-form-item label="">
-        <el-input v-model="userInfoForm.rePasswd" type="password" placeholder="重新输入密码"></el-input>
+      <el-form-item label="" prop="userPasswd" required :rules="passwordRules">
+        <el-input v-model="rePasswd" type="password" maxlength="32" placeholder="重新输入密码"></el-input>
       </el-form-item>
-      <el-form-item label="">
-        <el-input v-model="userInfoForm.userPhonenum" placeholder="请输入手机号"></el-input>
+      <el-form-item label="" prop="userPhonenum" required :rules="phoneRules">
+        <el-input v-model="userInfoForm.userPhonenum" type="tel" maxlength="11" placeholder="请输入手机号"></el-input>
       </el-form-item>
-      <el-form-item label="">
-        <el-input v-model="userInfoForm.userEmail" placeholder="请输入邮箱"></el-input>
+      <el-form-item label="" prop="userEmail" required :rules="emailRules">
+        <el-input v-model="userInfoForm.userEmail" type="email" maxlength="32" placeholder="请输入邮箱"></el-input>
       </el-form-item>
     </el-form>
     <div class="pb40 t-c pl50 pr50">
@@ -117,6 +117,7 @@ export default {
         userEmail: "",
       },
       repwd: "",
+      rePasswd: "",
       activeTab: this.$route.path,
       isLogin: sessionStorage.getItem("id") != undefined ? true : false,
       name: sessionStorage.getItem("userName"),
@@ -130,6 +131,45 @@ export default {
           name: "个人中心",
           url: "/my",
           login: true,
+        },
+      ],
+      emailRules: [
+        { required: true, message: '请输入邮箱', trigger: 'blur' },
+        {
+          validator: (rule, value, callback) => {
+            if (value && !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) {
+              callback(new Error('请输入有效的邮箱地址'));
+            } else {
+              callback();
+            }
+          },
+          trigger: ['blur', 'change'],
+        },
+      ],
+      phoneRules: [
+        { required: true, message: '请输入手机号', trigger: 'blur' },
+        {
+          validator: (rule, value, callback) => {
+            if (value && !/^\d{11}$/.test(value)) {
+              callback(new Error('请输入11位数字的手机号'));
+            } else {
+              callback();
+            }
+          },
+          trigger: ['blur', 'change'],
+        },
+      ],
+      passwordRules: [
+        { required: true, message: '请输入密码', trigger: 'blur' },
+        {
+          validator: (rule, value, callback) => {
+            if (value && /^.{3,}$/.test(value)) {
+              callback();
+            } else {
+              callback(new Error('密码至少3位'));
+            }
+          },
+          trigger: 'blur',
         },
       ],
     };
@@ -234,17 +274,26 @@ export default {
 
         // 修改信息
         async update() {
-      //密码
-      if (this.addForm.userPasswd != this.repwd) {
+          this.$refs.updateForm.validate(valid => {
+        if (valid) {
+                //密码
+      if (this.userInfoForm.userPasswd != this.rePasswd) {
         this.$message.error("两次输入密码不一致");
         return;
       }
           api.updateUser(this.userInfoForm).then((res) => {
             if (res == "更新成功") {
               this.$message.success("修改成功");
+              this.setUserInfo(this.userInfoForm);
             }else{
               this.$message.error("更新失败");
             }
+      });
+          console.log('表单校验通过');
+        } else {
+          // 表单校验未通过
+          console.log('表单校验未通过');
+        }
       });
     },
     loginout() {

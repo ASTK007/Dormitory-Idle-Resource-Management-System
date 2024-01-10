@@ -61,7 +61,7 @@
             <el-input v-model="addForm.goodsName" placeholder="请输入名称"></el-input>
           </el-form-item>
           <el-form-item label="数量:">
-            <el-input v-model="addForm.goodsNum" placeholder="请输入数量"></el-input>
+            <el-input v-model="addForm.goodsNum" type="number" placeholder="请输入数量"></el-input>
           </el-form-item>
           <el-form-item label="价格:">
             <el-input v-model="addForm.goodsValue" placeholder="请输入价格"></el-input>

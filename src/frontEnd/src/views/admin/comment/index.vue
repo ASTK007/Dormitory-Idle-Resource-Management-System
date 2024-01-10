@@ -36,16 +36,16 @@
       <div slot>
         <el-form ref="addForm" :model="addForm" label-width="120px" class="addForm" label-position="right" size="small">
           <el-form-item label="用户ID:">
-            <el-input v-model="addForm.uid"></el-input>
+            <el-input v-model="addForm.uid" type="number"></el-input>
           </el-form-item>
           <el-form-item label="评论内容:">
             <el-input v-model="addForm.commentContent"></el-input>
           </el-form-item>
           <el-form-item label="评论时间:">
-            <el-input v-model="addForm.commentTime" placeholder="不输入默认当前时间"></el-input>
+            <el-input v-model="addForm.commentTime" type="date" placeholder="不输入默认当前时间"></el-input>
           </el-form-item>
           <el-form-item label="商品ID:">
-            <el-input v-model="addForm.gid"></el-input>
+            <el-input v-model="addForm.gid" type="number"></el-input>
           </el-form-item>
         </el-form>
       </div>
