@@ -42,7 +42,7 @@
             <el-input v-model="addForm.commentContent"></el-input>
           </el-form-item>
           <el-form-item label="评论时间:">
-            <el-input v-model="addForm.commentTime" type="date" placeholder="不输入默认当前时间"></el-input>
+            <el-input v-model="addForm.commentTime" type="datetime-local"></el-input>
           </el-form-item>
           <el-form-item label="商品ID:">
             <el-input v-model="addForm.gid" type="number"></el-input>
@@ -58,7 +58,6 @@
 import Middle from "@/components/Middle/index.vue";
 import Dialog from "@/components/Dialog/index.vue";
 import Pagination from "@/components/Pagination/index.vue";
-import dayjs from "dayjs";
 import * as api from "@/api/api";
 
 export default {
@@ -150,7 +149,6 @@ export default {
         }
       });
       }else{
-        this.addForm.commentTime = dayjs(new Date()).format("YYYY-MM-DD hh:mm:ss");
         await api.addComment(this.addForm).then((res) => {
         if (res == "插入成功") {
           this.$message.success("添加成功!");

@@ -56,7 +56,6 @@ import Middle from "@/components/Middle";
 import * as api from "@/api/api";
 import { mapGetters, mapMutations } from "vuex";
 import { Loading } from "element-ui";
-import dayjs from "dayjs";
 
 export default {
   components: { Head, Middle, Footer },
@@ -154,7 +153,7 @@ export default {
           num: this.multipleSelection[key]["buynum"],
           gid: this.multipleSelection[key]["id"],
           uid: this.userinfo.id,
-          orderTime: dayjs(new Date()).format("YYYY-MM-DD hh:mm:ss"),
+          orderTime: new Date().toISOString().slice(0,16),
         };
         promiseAll.push(await api.addOrder(params));
         const newNum = this.multipleSelection[key]["goodsNum"] - this.multipleSelection[key]["buynum"]

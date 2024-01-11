@@ -19,7 +19,6 @@
 <script>
 import { AppMain } from '@/layout/components';
 import { mapGetters, mapMutations } from "vuex";
-import dayjs from "dayjs";
 import * as api from "@/api/api";
 
 export default {
@@ -49,7 +48,7 @@ export default {
       const newCommentData = {
         uid: this.userinfo.id,
         commentContent: this.newComment,
-        commentTime: dayjs(new Date()).format("YYYY-MM-DD hh:mm:ss"), 
+        commentTime: new Date().toISOString().slice(0,16),
         gid: this.itemId
       };
       api.addComment(newCommentData);

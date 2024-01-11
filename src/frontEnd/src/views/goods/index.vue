@@ -174,6 +174,8 @@ export default {
   ::v-deep img {
     width: 100%;
   }
+  min-height: 200px;
+  margin-bottom: auto;
 }
 .center {
   width: 1200px;
@@ -182,4 +184,3 @@ export default {
   margin-left: -600px;
 }
 </style>
-

@@ -2,9 +2,6 @@
   <div class="footer">
     <div class="center">
     </div>
-    <div class="project-introduction text-center "> 
-        <h2 class="summary">本项目为一个校园二手市场交易平台项目，旨在为校内师生提供一个方便、安全、高效的平台，使学生能够买卖二手物品、交换信息，并建立一个互助分享的社交网络</h2><br><br>
-      </div>
     <div class="footer-rows f-r f-j-s center">
       <ul class="f-c f-a-c f-j-c font15 font-black">
         <li class="font-black font18 mb20">帮助中心</li>
@@ -31,6 +28,9 @@
         <li class="mb10">晚枫〆</li>
       </ul>
     </div>
+    <div class="project-introduction text-center "> 
+        <h2 class="summary">本项目为一个校园二手市场交易平台项目，旨在为校内师生提供一个方便、安全、高效的平台，使学生能够买卖二手物品、交换信息，并建立一个互助分享的社交网络</h2><br><br>
+      </div>
   </div>
 </template>
 
