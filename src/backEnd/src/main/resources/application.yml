@@ -29,15 +29,6 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-pagehelper:
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
-logging:
-  level:
-    com.zhi.shop.dao: debug
-
 # springdoc-openapi 配置
 springdoc:
   swagger-ui:
