@@ -22,7 +22,8 @@ public class FileUploadController {
     
 @PostMapping("/upload")
     public String up(@RequestPart MultipartFile photo,HttpServletRequest request) throws IllegalStateException, IOException{
-        String path =ResourceUtils.getURL("classpath:").getPath()+"/upload/";
+        String path =this.getClass().getClassLoader().getResource("").getPath()+"/upload/";
+    System.out.println(path);
         File dir = new File(path);
         if(!dir.exists()){
             dir.mkdir();
