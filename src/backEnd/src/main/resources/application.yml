@@ -13,21 +13,13 @@ spring:
   web:
     resources:
       static-locations: classpath:/upload/
-  #整合vue、模板引擎
-  thymeleaf:
-    option: classpath:/templates/
-    suffix: .html
-    mode: HTML5
-    encoding: UTF-8
-    servlet:
-      content-type: text/html
-    cache: false
-  #整合vue、模板引擎
+  # mybatis plus 配置
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
   typeAliasesPackage: com.hzcu_fleakmarket.entity
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
 
 # springdoc-openapi 配置
 springdoc:
